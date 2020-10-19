@@ -36,8 +36,6 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
-      - run: yarn build
-
       - name: Check for lint errors
         run: yarn lint
 
