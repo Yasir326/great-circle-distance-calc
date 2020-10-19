@@ -7,3 +7,16 @@ Ensure you have node installed [**Node**](https://nodejs.org/en/download/).
 
 To run the program just enter ```node app.js``` in the terminal. Ensure you enter the command in the same directory
 as the project is in.
+
+## Useful Commands
+
+```
+# Install the Jest dependencies
+yarn install
+
+# Run the unit tests
+yarn test 
+
+# Watch the unit tests
+yarn test:watch
+```
