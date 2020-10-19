@@ -1,8 +1,8 @@
 const fs = require("fs");
 const { greatCircleDistanceCalc } = require("./greatCircleDistanceCalc.js");
 
-const inputFileName = "customers.txt";
-const outputFileName = "output.txt";
+const inputFileName = "./customers.txt";
+const outputFileName = "./output.txt";
 
 const maxDistance = 100;
 
@@ -20,16 +20,16 @@ writeInvitedCustomer(invitedCustomers, outputFileName);
 
 function readCustomers(filename) {
   return fs
-    .readFileSync(`./${filename}`, "utf-8")
+    .readFileSync(filename, "utf-8")
     .split("\n")
     .map((s) => JSON.parse(s));
 }
 
 function withinKms(location, kms) {
-  return (customer) =>
+  return (user) =>
     greatCircleDistanceCalc(
-      customer.latitude,
-      customer.longitude,
+      user.latitude,
+      user.longitude,
       location.latitude,
       location.longitude
     ) <= kms;
@@ -43,31 +43,18 @@ function formatCustomerForOutput({ name, user_id }) {
   return `${name}:${user_id}`;
 }
 
-function writeInvitedCustomer(arr, outputFileName) {
+async function writeInvitedCustomer(arr, outputFileName) {
   const writeStream = fs.createWriteStream(outputFileName);
   const pathName = writeStream.path;
 
   arr.forEach((value) => writeStream.write(`${value}\n`));
-  writeStream.on("finish", () => {
-    console.log(`wrote all the array data to file ${pathName}`);
-  });
-
-  writeStream.on("error", (err) => {
-    console.error(`There is an error writing the file ${pathName} => ${err}`);
-  });
-
   writeStream.end();
 }
 
 module.exports = {
   readCustomers,
   withinKms,
-  invitedCustomers,
-  formatCustomerForOutput
-
-
-
-}
+};
 
 // const customerFile = fs.readFileSync("./customers.txt", "utf-8"); //Read in file
 // const customerArr = customerFile.split("\n").map((s) => JSON.parse(s)); //Convert file into array of objects
