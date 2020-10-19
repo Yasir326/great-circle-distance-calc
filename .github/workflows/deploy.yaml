@@ -36,9 +36,6 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
-      - name: Check for lint errors
-        run: yarn lint
-
       - name: Regression tests
         run: |
           yarn test
