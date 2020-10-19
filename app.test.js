@@ -3,8 +3,6 @@ const {
   withinKms,
 } = require("./app.js");
 
-const testFile = require("./inputTest.txt");
-
 //Test Data
 const dublinOffice = {
   latitude: "53.339428",
@@ -49,5 +47,4 @@ test("User is not within 100km", () => {
 test("User data is parsed correctly", () => {
   expect(readCustomers("./inputTest.txt")).toStrictEqual(readCustomerOutPut);
 });
-
 
