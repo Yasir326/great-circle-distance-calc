@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { greatCircleDistanceCalc } = require("./greatCircleDistanceCalc.js");
+const { greatCircleDistanceCalc } = require("./greatCircleDistanceCalc.ts");
 
 const inputFileName = "./customers.txt";
 const outputFileName = "./output.txt";

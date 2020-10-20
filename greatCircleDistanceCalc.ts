@@ -3,7 +3,7 @@
  * https://www.movable-type.co.uk/scripts/latlong.html
  */
 
-const greatCircleDistanceCalc = (lat1, lon1, lat2, lon2) => {
+export const greatCircleDistanceCalc = (lat1, lon1, lat2, lon2) => {
   const R = 6371; // Radius of the earth in km
   const dLat = deg2rad(lat2 - lat1); // deg2rad below
   const dLon = deg2rad(lon2 - lon1);
@@ -22,6 +22,3 @@ const deg2rad = (deg) => {
   return deg * (Math.PI / 180);
 };
 
-module.exports = {
-    greatCircleDistanceCalc,
-};
