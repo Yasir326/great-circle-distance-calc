@@ -1,7 +1,7 @@
 const {
   readCustomers,
   withinKms,
-} = require("./app.ts");
+} = require("./app.js");
 
 //Test Data
 const dublinOffice = {
